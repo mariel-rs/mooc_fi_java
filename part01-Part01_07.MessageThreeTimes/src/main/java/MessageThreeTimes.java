@@ -9,5 +9,11 @@ public class MessageThreeTimes {
         System.out.println("Write a message:");
         // Write your program here
 
+        // read input and print it three times
+        String message = scanner.nextLine();
+        System.out.println(message);
+        System.out.println(message);
+        System.out.println(message);
+
     }
 }

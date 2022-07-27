@@ -8,5 +8,15 @@ public class Conversation {
 
         // Write your program here
 
+        // start the conversation. Dont like to see unused vars though...
+        System.out.println("Greetings! How are you doing?");
+        
+        String firstResponse = scanner.nextLine();
+
+        System.out.println("Oh, how interesting. Tell me more!");
+
+        String secondResponse = scanner.nextLine();
+
+        System.out.println("Thanks for sharing!");
     }
 }
