@@ -5,7 +5,7 @@ Helsinki.
 
 ## Progress log
 
-The below table shows the dates each part start and end dates, and an 
+The below table shows the start and end dates, and an 
 approximate number of hours spent on each part.
 
 | Part | Start date | End date | Approx. hours |
