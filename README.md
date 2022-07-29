@@ -10,7 +10,7 @@ approximate number of hours (effective, breaks not included) spent on each part.
 
 | Part | Start date | End date | Approx. hours |
 |:----:|------------|----------|:-------------:|
-| 1    | 26-07-2022 |  TBD     | 4.5           |
+| 1    | 26-07-2022 |  TBD     | 6             |
 | 2    | TBD        |  TBD     |               |
 | 3    | TBD        |  TBD     |               |
 | 4    | TBD        |  TBD     |               |
