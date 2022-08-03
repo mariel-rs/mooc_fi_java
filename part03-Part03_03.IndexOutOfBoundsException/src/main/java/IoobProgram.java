@@ -17,6 +17,8 @@ public class IoobProgram {
         for (String line : lines) {
             System.out.println(line);
         }
+        // Cause Out of bounds exception
+        System.out.println(lines.get(6));
 
     }
 }
