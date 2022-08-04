@@ -20,8 +20,14 @@ public class Swap {
         System.out.println("");
 
         // Implement here
-        // asking for the two indices
-        // and then swapping them
+        System.out.println("Give two indices to swap:");
+        int firstIndex = scanner.nextInt();
+        int secondIndex = scanner.nextInt();
+        
+        // swap values
+        int tmpHolder = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = tmpHolder;
 
         System.out.println("");
         index = 0;
