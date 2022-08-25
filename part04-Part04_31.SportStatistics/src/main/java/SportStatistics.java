@@ -15,69 +15,63 @@ public class SportStatistics {
         System.out.println("Team:");
         String team = scan.nextLine();
 
-        int numberOfGames = 0;
+        // Bring the input file
+        ArrayList<Game> allGames = getGamesFromFile(fileName);
+
+        // Get matches where the team plays
+        ArrayList<Game> teamGames = new ArrayList<>();
+
+        for (Game game : allGames) {
+            
+            if (team.equals(game.getHomeTeam()) || 
+            team.equals(game.getVisitingTeam())) {
+                
+                teamGames.add(game);
+            }
+        }
+
+        // Find out the times the team won a match
         int wins = 0;
 
-        try (Scanner reader = new Scanner(Paths.get(fileName))) {
-
-            while (reader.hasNextLine()) {
-
-                String info = reader.nextLine();
-                String[] matchInfo = info.split(",");
-
-                if (teamIsPlaying(team, matchInfo)) {
-                  numberOfGames++;  
-                }
-
-                if (findWin(team, matchInfo)) {
-                    wins++;
-                }                
-            }
+        for (Game game : teamGames) {
             
+            if (game.winner(team)) {
+                wins++;
+            }
+        }
+
+        System.out.println("Games: " + teamGames.size());
+        System.out.println("Wins: " + wins);
+        System.out.println("Losses: " + (teamGames.size() - wins));
+
+    }
+
+    public static ArrayList<Game> getGamesFromFile(String fileName) {
+        
+        /* This method reads the input file and processes it as an arraylist */
+        
+        ArrayList<Game> games = new ArrayList<>();
+     
+        try (Scanner inputFile = new Scanner(Paths.get(fileName))) {
+            
+            while (inputFile.hasNextLine()) {
+                
+                String input = inputFile.nextLine();
+                String[] matchInfo = input.split(",");
+
+                String homeTeam = matchInfo[0];
+                String visitingTeam = matchInfo[1];
+                int homePts = Integer.valueOf(matchInfo[2]);
+                int visitingPts = Integer.valueOf(matchInfo[3]);
+
+                games.add(new Game(homeTeam, visitingTeam, homePts, visitingPts));
+
+            }
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
-        System.out.println("Games: " + numberOfGames);
-        System.out.println("Wins: " + wins);
-        System.out.println("Losses: " + (numberOfGames - wins));
-
-    }
-
-    public static boolean teamIsPlaying(String team, String[] matchInfo){
-        String homeTeam = matchInfo[0];
-        String visitingTeam = matchInfo[1];
-
-        boolean counter = false;
-
-        if (homeTeam.equals(team) || visitingTeam.equals(team)) {
-            counter = true;
-        }
-
-        return counter;
-    }
-
-    public static boolean findWin(String team, String[] matchInfo) {
-        
-        boolean win = false;
-
-        String homeTeam = matchInfo[0];
-        String visitingTeam = matchInfo[1];
-        int homePoints = Integer.valueOf(matchInfo[2]);
-        int visitingPoints = Integer.valueOf(matchInfo[3]);
-
-        if (homeTeam.equals(team)) {
-            if (homePoints > visitingPoints) {
-                win = true;
-            }            
-        }
-
-        if (visitingTeam.equals(team)) {
-            if (visitingPoints > homePoints) {
-                win = true;
-            }            
-        }
-
-        return win;
+        return games;
     }
 }
