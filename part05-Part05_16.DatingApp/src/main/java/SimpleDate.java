@@ -34,7 +34,7 @@ public class SimpleDate {
     }
 
     public void advance() {
-
+    
         if (this.day < 30) {
             this.day += 1;
         }
