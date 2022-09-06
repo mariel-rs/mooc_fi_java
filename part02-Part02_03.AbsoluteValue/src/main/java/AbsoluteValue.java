@@ -8,10 +8,8 @@ public class AbsoluteValue {
         int number = Integer.valueOf(scanner.nextLine());
 
         if (number < 0) {
-            System.out.println(number * -1);
+            number = -1 * number;
         }
-        else {
-            System.out.println(number);
-        }
+        System.out.println(number);
     }
 }

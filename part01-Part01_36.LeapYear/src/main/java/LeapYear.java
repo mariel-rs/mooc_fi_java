@@ -18,8 +18,7 @@ public class LeapYear {
             System.out.println("The year is not a leap year.");
         } else if (year % 4 == 0) {
             System.out.println("The year is a leap year.");
-        }
-        else {
+        } else {
             System.out.println("The year is not a leap year.");
         }
     }
