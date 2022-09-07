@@ -13,8 +13,7 @@ public class ComparingNumbers {
             System.out.println(firstNumber + " is smaller than " + secondNumber + ".");
         } else if (firstNumber > secondNumber) {
             System.out.println(firstNumber + " is greater than " + secondNumber + ".");
-        }
-        else {
+        } else {
             System.out.println(firstNumber + " is equal to " + secondNumber + ".");
         }
     }
